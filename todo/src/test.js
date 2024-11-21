@@ -1,0 +1,1 @@
+export const greetings = 'Hello, Peter you can do it';
