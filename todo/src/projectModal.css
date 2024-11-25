@@ -1,0 +1,68 @@
+.addProjectModal{
+    background: hsl(0, 0%, 23%);
+
+    width: 530px;
+    height: 150px;
+
+    padding: 10px;
+
+    border-radius: 5px;
+
+}
+
+
+.modlHeaderDiv{
+    color: white;
+
+    border-bottom: 2px solid hsl(0,0%,20.39%) ;
+}
+
+.addProjectForm{
+    display: flex;
+    flex-direction: column;
+
+
+    color: white;
+
+    background-color: hsl(0, 0%, 23%);
+    width: 500px;
+
+    border: transparent;
+    border-radius: 10px;
+
+    margin-top: 5px;
+
+    
+}
+
+.projectModalActionDiv{
+    display: flex;
+    flex-direction: row;
+
+   justify-content: flex-end;
+   margin-top: 10px;
+}
+
+.projectModalActionDiv button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    width: 90px;
+  
+
+    border-radius: 5px;
+    color: white;
+    margin-right: 10px;
+
+}
+
+.projectCancelBtn{
+    
+    background-color: hsl(0,0%,40%);
+    
+}
+
+.projectAddBtn{
+    background: hsl(1.62,32.17%,22.55%);
+}

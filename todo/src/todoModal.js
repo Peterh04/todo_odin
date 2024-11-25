@@ -110,7 +110,7 @@ export default function todoModal(){
 
     for(let key in myProjects){
         const option = document.createElement('option');
-        option.textContent = key;
+        option.textContent = myProjects[key];
         projectDropdown.appendChild(option);
     }
 

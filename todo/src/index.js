@@ -1,5 +1,7 @@
+import projectModal from "./projectModal";
 import "./style.css";
 import todoModal from "./todoModal";
+
 
 
 
@@ -16,15 +18,23 @@ let loadAddTask = () =>{
     todoModal();
 }
 
+let loadAddProjects = () =>{
+    clearContent();
+    projectModal();
+
+}
 
 function setUpEventListeners(){
-    document.querySelector('.addTasksBtn').addEventListener('click', loadAddTask)
+    document.querySelector('.addTasksBtn').addEventListener('click', loadAddTask);
+    document.querySelector('.addProjectBtn').addEventListener('click', loadAddProjects);
 }
 
 
 function init(){
     setUpEventListeners();
 }
+
+
 
 
 init()

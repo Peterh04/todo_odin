@@ -1,8 +1,6 @@
-const myProjects = {
-    current : ['TASK1'],
-    school : ['Task 2'],
-    home : ['lol']
-}
+const myProjects = [
+    'current'
+]
 
 
 export default myProjects;
