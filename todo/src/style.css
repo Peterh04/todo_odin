@@ -1,3 +1,262 @@
-body {
-    background-color: aqua;
+:root {
+    --main-color-400 : hsl(0,0%,100%);
+    --main-color-200 : hsl(0,100%,98.43%);
+    --main-color-300 : hsl(0, 2%, 76%);
+    --main-color-600 : hsl(5.45,54.1%,64.12%);
+    --main-color-800 : hsl(4.82,53.85%,59.22%);
+
+    --important-color : hsl(0, 60%, 34%);
+    --almost-important-color : hsl(55, 60%, 49%);
+    --not-important-color : hsl(111.61,59.24%,69.22%);
+
+    --btn-main-color : hsl(56, 27%, 51%);
+    --btn-secondary-color : hsl(60, 3%, 39%);
+
+    --btn-main-border-radius : 5px;
 }
+
+
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* 2. Remove default margin */
+  * {
+    margin: 0;
+  }
+  
+  body {
+    /* 3. Add accessible line-height */
+    line-height: 1.5;
+    /* 4. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* 5. Improve media defaults */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  /* 6. Inherit fonts for form controls */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  
+  /* 7. Avoid text overflows */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  
+  /* 8. Improve line wrapping */
+  p {
+    text-wrap: pretty;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+  
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+  body{
+    height: 100vh;
+    display: flex;
+
+   
+  }
+
+ 
+
+  .todoApp{
+    display: flex;
+    
+    width: 100%;
+   
+    background-color: black;
+
+  }
+
+  .todo-options{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    background-color: var(--main-color-300);
+
+    padding: 20px;
+  }
+
+  .todo-showcase{
+    display: flex;
+    flex: 5;
+    background-color: var(--main-color-400);
+    
+  }
+
+  button{
+    display: flex;
+    align-items: center;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .userMenuBtn{
+
+    width: 35%;  
+
+    >img{
+        width: 40%;
+        margin-left: 10px;
+    }
+    
+  }
+
+  .userMenuBtn:hover {
+    background-color: var(--btn-main-color);
+
+
+    border-radius: var(--btn-main-border-radius);
+  }
+
+
+  .addTasksBtn{
+ 
+    width: 100%;
+    margin-top: 20px;
+
+    
+    >img{
+        width: 10%;
+        margin-right: 10px;
+    }
+    
+  }
+
+  .addTasksBtn:hover {
+      border-radius: var(--btn-main-border-radius);
+
+      background-color: var(--btn-main-color);
+  }
+
+
+  .menuBtns{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    margin-top: 5px;
+
+  }
+
+
+  .menuBtns button{
+  
+        width: 100%;
+        margin-top: 10px;
+
+    >img{
+        width: 10%;
+        margin-right: 10px;
+        background : transparent
+    }
+  }
+
+  .menuBtns button:hover{
+    border-radius: var(--btn-main-border-radius);
+
+    background-color: var(--btn-main-color);
+  }
+
+  .myProjectsDiv{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    margin-top: 20px;
+  }
+
+  .myProjectsDiv button{
+    display: flex;
+
+    width: 100%;
+    margin-top: 10px;
+
+   
+    justify-content: center;
+    >img{
+        width: 10%;
+        margin-right: 10px;
+        background : transparent
+    }
+
+  }
+
+  .projectsBtnDiv{
+    display: flex;
+    
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+  }
+
+  .projectsBtnDiv > button {
+    display: flex;
+
+    width: 20%;
+   
+
+  
+    >img{
+        width: 100%;
+        background : transparent
+    }
+  }
+
+  .addProjectBtn{
+    display: flex;
+   margin-left: 110px;
+   
+  }
+
+  .projectsBtnDiv > button{
+    visibility: hidden;
+  }
+
+  .projectsBtnDiv:hover{
+    border-radius: var(--btn-main-border-radius);
+    background-color: var(--btn-main-color);
+
+    cursor: pointer;
+
+    >button{
+        visibility: visible;
+       
+    }
+  }
+
+  .todo-showcase{
+    display: flex;
+    justify-content: center;
+
+    background-color: azure;
+    padding-top: 8%;
+    padding-right: 10%;
+  }
+
+
+
+
+

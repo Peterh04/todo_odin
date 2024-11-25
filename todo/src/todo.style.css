@@ -1,0 +1,121 @@
+.todoForm{
+    display: flex;
+    flex-direction: column;
+
+    color: hsl(0,0%,40%);
+
+    background-color: hsl(0, 0%, 23%);
+    width: 500px;
+
+    border: 2px solid hsl(0,0%,20.39%);
+    border-radius: 10px;
+
+    padding-left: 10px;
+
+}
+
+.todoForm > input{
+    border: none;
+    background-color: transparent;
+
+    height: 40px;
+    width: 450px;
+
+    margin-left: 3px;
+    margin-top: 10px;
+
+    font-weight: bold;
+ 
+}
+
+.taskInfoContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.projectActionDiv{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.taskInfoContainer{
+    color: hsl(0,0%,40%);
+    margin-top: 10px;
+}
+
+.taskInfoContainer input {
+   
+    color: green;
+    background: transparent;
+    border: 2px solid hsl(0,0%,20.39%) ;
+    cursor: pointer;
+
+   
+}
+
+.taskInfoContainer select{
+    color: hsl(0,0%,40%);
+    background-color: transparent;
+    
+    margin-left: 30px;
+    cursor: pointer;
+
+}
+
+.projectActionDiv{
+    display: flex;
+
+    width: 100%;
+
+    justify-content: space-between;
+    
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-top: 2px solid hsl(0,0%,20.39%);
+    padding-top: 10px;
+
+    color: white;
+    
+}
+
+.projectActionDiv select{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: transparent;
+    border: none;
+
+    color: gray;
+
+    cursor: pointer;
+    
+}
+
+.projectActionBtnDiv{
+    display: flex;
+}
+
+.projectActionBtnDiv button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    width: 90px;
+  
+
+    border-radius: 5px;
+    color: white;
+    margin-right: 10px;
+}
+
+.cancelBtn{
+    background: hsl(0,0%,40%);
+}
+
+.addTaskFormBtn{
+    background: hsl(1.62,32.17%,22.55%);
+   
+}
+
