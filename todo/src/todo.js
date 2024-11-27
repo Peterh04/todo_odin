@@ -1,4 +1,6 @@
-const todos = []
+const todos = [
+
+]
 
 export default function todoCreate(){
     
@@ -9,7 +11,8 @@ export default function todoCreate(){
             this.taskDueDate = taskDueDate;
             this.taskPriority = taskPriority,
             this.taskProject = taskProject
-            this.todoId = `todo_${Date.now()}`
+            this.todoId = `todo_${Date.now()}`,
+            this.isChecked = false;
             
         }
 
@@ -32,3 +35,4 @@ export default function todoCreate(){
 
 }
 
+export { todos }

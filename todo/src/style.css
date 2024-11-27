@@ -17,6 +17,7 @@
 
 
 
+
 /* 1. Use a more-intuitive box-sizing model */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -256,6 +257,29 @@
     padding-right: 10%;
   }
 
+
+ .visible{
+    visibility: visible;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.listProjectDivBtn{
+
+
+  color: black;
+
+  border-radius: 5px;
+  padding: 5px;
+
+  cursor: pointer;
+}
+
+.listProjectDivBtn:hover{
+  background: var(--btn-main-color);
+}
 
 
 

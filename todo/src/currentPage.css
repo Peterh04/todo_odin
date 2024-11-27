@@ -1,0 +1,88 @@
+.todo-showcase{
+    background-color: hsl(0,0%,5.88%);
+}
+
+.currentTodoShowcaseDiv{
+    display: flex;
+    flex-direction: column;
+
+    background-color: black;
+
+    width: 80%;
+    height: auto;
+
+    padding-left: 50px;
+    
+
+}
+
+.currentTodoShowcaseDiv input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Makes the checkbox round */
+    appearance: none;
+    border: 2px solid #333;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative; /* For positioning the tick */
+    margin-top: 2px;
+}
+
+.currentTodoShowcaseDiv /* When checked, show the tick */
+input[type="checkbox"]:checked::before {
+    content: '\2713'; /* Unicode checkmark symbol */
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    font-size: 14px;
+    color: #fff; /* Tick mark color */
+}
+
+.currentTodoShowcaseDiv input[type="checkbox"]:checked {
+    background-color: #333;
+    border-color: #333;
+}
+
+.currentTodoShowcaseDiv h2{
+    color: white;
+}
+
+
+.currentPageListDiv{
+    background-color: transparent;
+    width : 95%;
+    height: 80%;
+
+    padding: 10px;
+
+}
+
+.currentTaskContentDiv{
+    display: flex;
+    flex-direction: column;
+
+    background-color: transparent;
+    border-radius: 1px;
+
+    border-bottom: 1px solid hsl(0, 1%, 49%);
+
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.currentTaskContentDiv h4{
+    color: white;
+
+    padding-left: 8px;
+}
+
+.currentTaskContentDiv p{
+    color: grey;
+
+    padding-left: 20px;
+    padding-bottom: 5px;
+}
+
+.checked_headerDiv{
+    display: flex;
+}
