@@ -1,10 +1,11 @@
 import { todos } from "./todo";
+const savedTodos = JSON.parse(localStorage.getItem('todos'));
 
 export default function showUpcomingTasks() {
 
 
     const todoShowcase = document.querySelector('.todo-showcase');
-    todoShowcase.style.background = 'black'
+    todoShowcase.classList.add('todoShowCase');
     const upcomingTodoShowcaseDiv = document.createElement('div');
     upcomingTodoShowcaseDiv.classList.add('currentTodoShowcaseDiv');
   
@@ -17,7 +18,7 @@ export default function showUpcomingTasks() {
   
     //individual div with individual curretTask contents;  
     const today = new Date().toISOString().split('T')[0];
-    const upcomingTodos = todos.filter((todo)=>{
+    const upcomingTodos = savedTodos.filter((todo)=>{
     return todo.taskDueDate > today;
    })
     upcomingTodos.forEach((todo)=>{

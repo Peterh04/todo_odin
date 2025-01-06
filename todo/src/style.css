@@ -1,7 +1,7 @@
 :root {
     --main-color-400 : hsl(0,0%,100%);
     --main-color-200 : hsl(0,100%,98.43%);
-    --main-color-300 : hsl(0, 2%, 76%);
+    --main-color-300 : hsl(0,0%,14.9%);
     --main-color-600 : hsl(5.45,54.1%,64.12%);
     --main-color-800 : hsl(4.82,53.85%,59.22%);
 
@@ -9,7 +9,7 @@
     --almost-important-color : hsl(55, 60%, 49%);
     --not-important-color : hsl(111.61,59.24%,69.22%);
 
-    --btn-main-color : hsl(56, 27%, 51%);
+    --btn-main-color : hsl(55, 14%, 36%);
     --btn-secondary-color : hsl(60, 3%, 39%);
 
     --btn-main-border-radius : 5px;
@@ -91,6 +91,9 @@
 
     background-color: var(--main-color-300);
 
+    color: hsl(52.5,6.78%,76.86%);
+    
+
     padding: 20px;
   }
 
@@ -98,6 +101,8 @@
     display: flex;
     flex: 5;
     background-color: var(--main-color-400);
+
+    
     
   }
 
@@ -107,6 +112,8 @@
     border: none;
     background: transparent;
     cursor: pointer;
+
+    color:  hsl(180,6.9%,88.63%);
   }
 
   .userMenuBtn{
@@ -281,6 +288,13 @@
   background: var(--btn-main-color);
 }
 
+.clickedOptionBtn{
+  background-color: hsl(0,31.48%,21.18%);
+  border-radius: 5px;
+}
 
+.todoShowCase{
+  background-color: hsl(0,0%,11.76%);
+}
 
 

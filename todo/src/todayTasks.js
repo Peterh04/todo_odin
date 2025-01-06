@@ -1,12 +1,13 @@
 import { todos } from "./todo"
-
+const savedTodos = JSON.parse(localStorage.getItem('todos'));
 
 
 export default function showTodayProjects(){
 
 
+
     const todoShowcase = document.querySelector('.todo-showcase');
-    todoShowcase.style.background = 'black'
+    todoShowcase.classList.add('todoShowCase');
     const todayTodoShowcaseDiv = document.createElement('div');
     todayTodoShowcaseDiv.classList.add('currentTodoShowcaseDiv');
   
@@ -19,9 +20,13 @@ export default function showTodayProjects(){
   
     //individual div with individual curretTask contents;  
     const today = new Date().toISOString().split('T')[0];
-    const todayTodos = todos.filter((todo)=>{
+    const todayTodos = savedTodos.filter((todo)=>{
+    console.log(todo);
+      
     return todo.taskDueDate === today;
    })
+
+
     todayTodos.forEach((todo)=>{
       const todayTaskContentDiv = document.createElement('div');
       todayTaskContentDiv.classList.add('currentTaskContentDiv');
@@ -43,6 +48,8 @@ export default function showTodayProjects(){
       //description for the tasks
       const todayTaskDescription = document.createElement('p');
       todayTaskDescription.textContent = todo.taskDescription;
+
+      
   
       //dueDate for the tasks
       const todayTaskDuedate = document.createElement('p');

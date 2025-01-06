@@ -24,7 +24,7 @@
 
     color: white;
 
-    background-color: hsl(0, 0%, 23%);
+    background-color: transparent;
     width: 500px;
 
     border: transparent;
@@ -64,7 +64,7 @@
 }
 
 .projectAddBtn{
-    background: hsl(1.62,32.17%,22.55%);
+    background: hsl(0.81,69.16%,58.04%);
 }
 
 

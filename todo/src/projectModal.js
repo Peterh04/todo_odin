@@ -4,6 +4,7 @@ import "./projectModal.css";
 
 export default function(){
     const todoShowCase = document.querySelector('.todo-showcase');
+    
     const addProjectModal = document.createElement('div');
     addProjectModal.classList.add('addProjectModal')
 

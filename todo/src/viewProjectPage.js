@@ -1,6 +1,7 @@
 import listProjects from "./ListProject";
 import myProjects from "./projects";
 import { todos } from "./todo";
+const savedTodos = JSON.parse(localStorage.getItem('todos'));
 
 
 
@@ -10,7 +11,7 @@ export default function viewProject (projectName){
 
     const todoShowcase = document.querySelector('.todo-showcase');
     todoShowcase.innerHTML = ''
-    todoShowcase.style.background = 'black';
+    todoShowcase.classList.add('todoShowCase');
 
     const todoShowcaseDiv = document.createElement('div');
     todoShowcaseDiv.classList.add('currentTodoShowcaseDiv');
@@ -22,7 +23,7 @@ export default function viewProject (projectName){
     pageListDiv.classList.add('currentPageListDiv');
 
     //individual div with individual PageTask contents;
-    const pageTodos = todos.filter((todo)=>{
+    const pageTodos = savedTodos.filter((todo)=>{
         return todo.taskProject == projectName
     })
 

@@ -1,7 +1,7 @@
 
 
 const myProjects = [
-    'current'
+   
 ]
 
 

@@ -1,38 +1,44 @@
-const todos = [
+let todos = [];
 
-]
+// Ensure that existing todos are loaded from localStorage
+export default function todoCreate() {
+    let todos = JSON.parse(localStorage.getItem('todos')) || [];
 
-export default function todoCreate(){
-    
-    class todo{
-        constructor(taskName, taskDescription, taskDueDate, taskPriority, taskProject){
+    class todo {
+        constructor(taskName, taskDescription, taskDueDate, taskPriority, taskProject) {
             this.taskName = taskName;
             this.taskDescription = taskDescription;
             this.taskDueDate = taskDueDate;
-            this.taskPriority = taskPriority,
-            this.taskProject = taskProject
-            this.todoId = `todo_${Date.now()}`,
+            this.taskPriority = taskPriority;
+            this.taskProject = taskProject;
+            this.todoId = `todo_${Date.now()}`;
             this.isChecked = false;
-            
         }
-
     }
-
-    const todoNameInput = document.querySelector('.todoNameInput');
-
-    const todoDescriptioninput = document.querySelector('.todoDescriptioninput');
     
+    // Reference input fields
+    const todoNameInput = document.querySelector('.todoNameInput');
+    const todoDescriptionInput = document.querySelector('.todoDescriptioninput');
+
+    console.log(todoDescriptionInput)
     const dueDateInput = document.querySelector('.dueDateInput');
-
     const prioritiesDropdown = document.querySelector('.prioritiesDropdown');
-
     const projectDropdown = document.querySelector('.projectDropdown');
-
-    todos.push(new todo(todoNameInput.value,todoDescriptioninput.value,dueDateInput.value, prioritiesDropdown.value, projectDropdown.value));
-
-
-    console.log(todos)
-
+    
+    // Create and add the new todo
+    const newTodo = new todo(
+        todoNameInput.value,
+        todoDescriptionInput.value,
+        dueDateInput.value,
+        prioritiesDropdown.value,
+        projectDropdown.value
+    );
+    todos.push(newTodo);
+    
+    // Save back to localStorage
+    localStorage.setItem('todos', JSON.stringify(todos));
+    
+    location.reload()
 }
 
-export { todos }
+export { todos };

@@ -18,6 +18,7 @@ export default function todoModal(){
 
     const todoDescriptioninput = document.createElement('input');
     todoDescriptioninput.classList.add('todoDescriptioninput');
+   
 
 
     const todoNameAttributes = {
@@ -52,15 +53,20 @@ export default function todoModal(){
 
     const dueDateInput = document.createElement('input');
     dueDateInput.classList.add('dueDateInput');
+    
+    const today = new Date().toISOString().split('T')[0];
 
     const dueDateInputAttributes = {
         type : 'date',
         required : 'true',
+        id : 'datePicker',
+        min : today
     }
 
     for(let key in dueDateInputAttributes){
         dueDateInput.setAttribute(key, dueDateInputAttributes[key])
     };
+
 
     const prioritiesDropdown = document.createElement('select');
     prioritiesDropdown.classList.add('prioritiesDropdown');
@@ -106,6 +112,10 @@ export default function todoModal(){
     for(let key in projectDropdownAttributes){
         projectDropdown.setAttribute(key, projectDropdownAttributes[key])
     };
+
+    const InboxOption = document.createElement('option');
+    InboxOption.textContent = 'inbox';
+    projectDropdown.appendChild(InboxOption);
 
 
     for(let key in myProjects){
