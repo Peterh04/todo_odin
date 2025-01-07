@@ -1,4 +1,6 @@
+import { deleteTodo } from "./delete";
 import { todos } from "./todo";
+
 
 export default function showTodayProjects() {
   const savedTodos = JSON.parse(localStorage.getItem('todos')) || []; 
@@ -29,7 +31,8 @@ export default function showTodayProjects() {
     noTodosMessage.classList.add('noTodosMessage');
     todayPageListDiv.appendChild(noTodosMessage);
   } else {
-    // Render todos
+    
+
     todayTodos.forEach((todo) => {
       const todayTaskContentDiv = document.createElement('div');
       todayTaskContentDiv.classList.add('currentTaskContentDiv');
@@ -37,6 +40,34 @@ export default function showTodayProjects() {
       // Checkbox for tasks
       const isCheckedInput = document.createElement('input');
       isCheckedInput.type = 'checkbox';
+
+      isCheckedInput.addEventListener('change', ()=>{
+
+        if(isCheckedInput.checked){
+            console.log('on')
+            todo.isChecked = true;
+            todayTaskContentDiv.classList.add('todoChecked');
+            localStorage.setItem('todos', JSON.stringify(savedTodos));
+            location.reload()
+            console.log(localStorage);
+            
+        }else{
+            
+            console.log('off');
+            todo.isChecked = false;
+            TaskContentDiv.classList.remove('todoChecked');
+            localStorage.setItem('todos', JSON.stringify(savedTodos));
+            location.reload()
+            console.log(localStorage);
+            
+            
+            
+            
+        }
+    
+   })
+
+      
 
       const todayTaskHeader = document.createElement('h4');
       todayTaskHeader.textContent = todo.taskName;
@@ -59,11 +90,20 @@ export default function showTodayProjects() {
 
       todayTaskDuedate.textContent = `${month} ${day}`;
 
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'delete';
+      deleteBtn.classList.add('addTaskFormBtn')
+      deleteBtn.addEventListener('click', () => {
+          deleteTodo(todo)
+      })
+
       todayTaskContentDiv.appendChild(checked_headerDiv);
       todayTaskContentDiv.appendChild(todayTaskDescription);
       todayTaskContentDiv.appendChild(todayTaskDuedate);
-
+      todayTaskContentDiv.appendChild(deleteBtn)
+      
       todayPageListDiv.appendChild(todayTaskContentDiv);
+      
     });
   }
 

@@ -1,6 +1,6 @@
 let todos = [];
 
-// Ensure that existing todos are loaded from localStorage
+
 export default function todoCreate() {
     let todos = JSON.parse(localStorage.getItem('todos')) || [];
 
@@ -16,7 +16,7 @@ export default function todoCreate() {
         }
     }
     
-    // Reference input fields
+  
     const todoNameInput = document.querySelector('.todoNameInput');
     const todoDescriptionInput = document.querySelector('.todoDescriptioninput');
 
@@ -25,7 +25,6 @@ export default function todoCreate() {
     const prioritiesDropdown = document.querySelector('.prioritiesDropdown');
     const projectDropdown = document.querySelector('.projectDropdown');
     
-    // Create and add the new todo
     const newTodo = new todo(
         todoNameInput.value,
         todoDescriptionInput.value,
@@ -35,7 +34,7 @@ export default function todoCreate() {
     );
     todos.push(newTodo);
     
-    // Save back to localStorage
+   
     localStorage.setItem('todos', JSON.stringify(todos));
     
     location.reload()

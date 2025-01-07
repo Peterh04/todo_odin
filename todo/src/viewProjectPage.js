@@ -1,6 +1,7 @@
 import listProjects from "./ListProject";
 import myProjects from "./projects";
-import { todos } from "./todo";
+
+import { deleteTodo } from "./delete";
 
 const savedTodos = JSON.parse(localStorage.getItem('todos')) || [];
 export default function viewProject(projectName) {
@@ -21,7 +22,7 @@ export default function viewProject(projectName) {
 
     // Filter todos for the selected project
     const pageTodos = savedTodos.filter((todo) => {
-        return todo.taskProject === projectName;
+        return todo.taskProject === projectName && todo.isChecked === false;
     });
 
     if (pageTodos.length === 0) {
@@ -39,6 +40,33 @@ export default function viewProject(projectName) {
             // Checkbox for tasks
             const isCheckedInput = document.createElement('input');
             isCheckedInput.type = 'checkbox';
+            isCheckedInput.checked = todo.isChecked;
+
+            isCheckedInput.addEventListener('change', ()=>{
+
+                if(isCheckedInput.checked){
+                    console.log('on')
+                    todo.isChecked = true;
+                    pageTaskContentDiv.classList.add('todoChecked');
+                    localStorage.setItem('todos', JSON.stringify(savedTodos));
+                    location.reload()
+                    console.log(localStorage);
+                    
+                }else{
+                    
+                    console.log('off');
+                    todo.isChecked = false;
+                    pageTaskContentDiv.classList.remove('todoChecked');
+                    localStorage.setItem('todos', JSON.stringify(savedTodos));
+                    location.reload()
+                    console.log(localStorage);
+                    
+                    
+                    
+                    
+                }
+            
+           })
 
             const pageTaskHeader = document.createElement('h4');
             pageTaskHeader.textContent = todo.taskName;
@@ -61,9 +89,19 @@ export default function viewProject(projectName) {
 
             pageTaskDuedate.textContent = `${month} ${day}`;
 
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'delete';
+            deleteBtn.classList.add('addTaskFormBtn')
+            deleteBtn.addEventListener('click', () => {
+                deleteTodo(todo)
+            })
+        
+            
+            
             pageTaskContentDiv.appendChild(checked_headerDiv);
             pageTaskContentDiv.appendChild(pageTaskDescription);
             pageTaskContentDiv.appendChild(pageTaskDuedate);
+            pageTaskContentDiv.appendChild(deleteBtn)
 
             pageListDiv.appendChild(pageTaskContentDiv);
         });

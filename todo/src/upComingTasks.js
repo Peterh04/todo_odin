@@ -1,3 +1,4 @@
+import { deleteTodo } from "./delete";
 import { todos } from "./todo";
 const savedTodos = JSON.parse(localStorage.getItem('todos')) || []; 
 
@@ -37,6 +38,32 @@ export default function showUpcomingTasks() {
       const isCheckedInput = document.createElement('input');
       isCheckedInput.type = 'checkbox';
 
+      isCheckedInput.addEventListener('change', ()=>{
+
+        if(isCheckedInput.checked){
+            console.log('on')
+            todo.isChecked = true;
+            upcomingTaskContentDiv.classList.add('todoChecked');
+            localStorage.setItem('todos', JSON.stringify(savedTodos));
+            location.reload()
+            console.log(localStorage);
+            
+        }else{
+            
+            console.log('off');
+            todo.isChecked = false;
+            TaskContentDiv.classList.remove('todoChecked');
+            localStorage.setItem('todos', JSON.stringify(savedTodos));
+            location.reload()
+            console.log(localStorage);
+            
+            
+            
+            
+        }
+    
+   })
+
       const upcomingTaskHeader = document.createElement('h4');
       upcomingTaskHeader.textContent = todo.taskName;
 
@@ -57,10 +84,18 @@ export default function showUpcomingTasks() {
       const day = dateObj.getDate();
 
       upcomingTaskDuedate.textContent = `${month} ${day}`;
-
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'delete';
+      deleteBtn.classList.add('addTaskFormBtn')
+      deleteBtn.addEventListener('click', () => {
+          deleteTodo(todo)
+      })
+      
+      
       upcomingTaskContentDiv.appendChild(checked_headerDiv);
       upcomingTaskContentDiv.appendChild(upcomingTaskDescription);
       upcomingTaskContentDiv.appendChild(upcomingTaskDuedate);
+      upcomingTaskContentDiv.appendChild(deleteBtn);
 
       upcomingPageListDiv.appendChild(upcomingTaskContentDiv);
     });

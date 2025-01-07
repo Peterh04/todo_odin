@@ -1,5 +1,6 @@
 import { todos } from "./todo";
 import "./currentPage.css";
+import { deleteTodo } from "./delete";
 
 export default function displayInboxTodos() {
   const todoShowcase = document.querySelector('.todo-showcase');
@@ -17,7 +18,7 @@ export default function displayInboxTodos() {
   const savedTodos = JSON.parse(localStorage.getItem('todos')) || []; 
 
   const inboxTodos = savedTodos.filter((todo) => {
-    return todo.taskProject === 'inbox';
+    return todo.taskProject === 'inbox' && todo.isChecked === false;
   });
 
   if (inboxTodos.length === 0) {
@@ -35,6 +36,34 @@ export default function displayInboxTodos() {
       // Checkbox for tasks
       const isCheckedInput = document.createElement('input');
       isCheckedInput.type = 'checkbox';
+
+      isCheckedInput.addEventListener('change', ()=>{
+
+        if(isCheckedInput.checked){
+            console.log('on')
+            todo.isChecked = true;
+            inboxTaskContentDiv.classList.add('todoChecked');
+            localStorage.setItem('todos', JSON.stringify(savedTodos));
+            location.reload()
+            console.log(localStorage);
+            
+        }else{
+            
+            console.log('off');
+            todo.isChecked = false;
+            inboxTaskContentDiv.classList.remove('todoChecked');
+            localStorage.setItem('todos', JSON.stringify(savedTodos));
+            location.reload()
+            console.log(localStorage);
+            
+            
+            
+            
+        }
+    
+   })
+
+      
 
       const inboxTaskHeader = document.createElement('h4');
       inboxTaskHeader.textContent = todo.taskName;
@@ -57,9 +86,17 @@ export default function displayInboxTodos() {
 
       inboxTaskDuedate.textContent = `${month} ${day}`;
 
-      inboxTaskContentDiv.appendChild(checked_headerDiv);
-      inboxTaskContentDiv.appendChild(inboxTaskDescription);
-      inboxTaskContentDiv.appendChild(inboxTaskDuedate);
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'delete';
+      deleteBtn.classList.add('addTaskFormBtn')
+      deleteBtn.addEventListener('click', () => {
+                deleteTodo(todo)
+            })
+            
+            inboxTaskContentDiv.appendChild(checked_headerDiv);
+            inboxTaskContentDiv.appendChild(inboxTaskDescription);
+            inboxTaskContentDiv.appendChild(inboxTaskDuedate);
+            inboxTaskContentDiv.appendChild(deleteBtn)
 
       inboxtPageListDiv.appendChild(inboxTaskContentDiv);
     });
