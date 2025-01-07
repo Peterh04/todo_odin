@@ -134,11 +134,25 @@ export default function todoModal(){
     addBtn.classList.add('addTaskFormBtn');
 
     addBtn.setAttribute('type', 'button');
+
+    addBtn.addEventListener('click', () => {
+        if (!dueDateInput.value) {
+           
+            dueDateInput.classList.add('input-error'); 
+            alert('Please select a due date before adding the task.');
+            return; 
+        }
     
-    addBtn.addEventListener('click',()=>{
+      
         todoCreate();
         hidetodoModal();
     });
+
+        
+        dueDateInput.addEventListener('input', () => {
+        dueDateInput.classList.remove('input-error');
+    });
+    
 
     let hidetodoModal = () =>{
         todoForm.style.visibility = 'hidden';
