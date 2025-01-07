@@ -1,9 +1,9 @@
-import myProjects from "./projects";
 import viewProject from "./viewProjectPage";
 
 
 
 export default function listProjects(){
+    let myProjects = JSON.parse(localStorage.getItem('projects')) || []
     const listProjectDiv = document.querySelector('.listProjectDiv');
     listProjectDiv.innerHTML = '';  
     

@@ -298,3 +298,10 @@
 }
 
 
+.todoChecked h4,
+.todoChecked p {
+  text-decoration: line-through;
+}
+
+
+

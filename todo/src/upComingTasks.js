@@ -3,6 +3,8 @@ const savedTodos = JSON.parse(localStorage.getItem('todos'));
 
 export default function showUpcomingTasks() {
 
+  
+  
 
     const todoShowcase = document.querySelector('.todo-showcase');
     todoShowcase.classList.add('todoShowCase');
@@ -19,7 +21,7 @@ export default function showUpcomingTasks() {
     //individual div with individual curretTask contents;  
     const today = new Date().toISOString().split('T')[0];
     const upcomingTodos = savedTodos.filter((todo)=>{
-    return todo.taskDueDate > today;
+    return todo.taskDueDate > today && todo.isChecked == false;
    })
     upcomingTodos.forEach((todo)=>{
       const upcomingTaskContentDiv = document.createElement('div');

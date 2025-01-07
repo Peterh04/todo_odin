@@ -23,7 +23,7 @@ export default function viewProject (projectName){
     pageListDiv.classList.add('currentPageListDiv');
 
     //individual div with individual PageTask contents;
-    const pageTodos = savedTodos.filter((todo)=>{
+        const pageTodos = savedTodos.filter((todo)=>{
         return todo.taskProject == projectName
     })
 

@@ -23,7 +23,7 @@ export default function showTodayProjects(){
     const todayTodos = savedTodos.filter((todo)=>{
     console.log(todo);
       
-    return todo.taskDueDate === today;
+    return todo.taskDueDate === today && todo.isChecked == false;
    })
 
 

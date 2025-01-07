@@ -1,5 +1,5 @@
 import myPriorities from "./priorities";
-import myProjects from "./projects";
+
 import todoCreate from "./todo";
 import "./todo.style.css";
 
@@ -117,6 +117,7 @@ export default function todoModal(){
     InboxOption.textContent = 'inbox';
     projectDropdown.appendChild(InboxOption);
 
+    let myProjects = JSON.parse(localStorage.getItem('projects'));
 
     for(let key in myProjects){
         const option = document.createElement('option');

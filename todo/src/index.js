@@ -1,4 +1,5 @@
 // Imports
+import { deleteTodo } from "./delete";
 import displayInboxTodos from "./inbox";
 import listProjects from "./ListProject";
 import projectModal from "./projectModal";
@@ -7,6 +8,7 @@ import showTodayProjects from "./todayTasks";
 import { todos } from "./todo";
 import todoModal from "./todoModal";
 import showUpcomingTasks from "./upComingTasks";
+
 
 // Utility Functions
 const clearContent = () => {
@@ -131,6 +133,7 @@ function setUpEventListeners() {
 const savedTodos = JSON.parse(localStorage.getItem('todos')) || [];
 // Display Saved Todos
 function showInitialSavedTodos() {
+    
     const todoShowcase = document.querySelector('.todo-showcase');
     todoShowcase.classList.add('todoShowCase');
 
@@ -148,8 +151,56 @@ function showInitialSavedTodos() {
         const TaskContentDiv = document.createElement('div');
         TaskContentDiv.classList.add('currentTaskContentDiv');
 
+
         const isCheckedInput = document.createElement('input');
         isCheckedInput.type = 'checkbox';
+
+
+        console.log(todo.isChecked);
+
+        
+        
+
+        if(todo.isChecked == true){
+            TaskContentDiv.classList.add('todoChecked');
+            isCheckedInput.checked = true
+           
+            
+        }else{
+            TaskContentDiv.classList.remove('todoChecked');
+        }
+        
+
+        isCheckedInput.addEventListener('change', ()=>{
+
+            if(isCheckedInput.checked){
+                console.log('on')
+                todo.isChecked = true;
+                TaskContentDiv.classList.add('todoChecked');
+                localStorage.setItem('todos', JSON.stringify(savedTodos));
+                location.reload()
+                console.log(localStorage);
+                
+            }else{
+                
+                console.log('off');
+                todo.isChecked = false;
+                TaskContentDiv.classList.remove('todoChecked');
+                localStorage.setItem('todos', JSON.stringify(savedTodos));
+                location.reload()
+                console.log(localStorage);
+                
+                
+                
+                
+            }
+        
+       })
+
+    
+
+   
+        
 
         
         const TaskHeader = document.createElement('h4');
@@ -170,10 +221,19 @@ function showInitialSavedTodos() {
         const day = dateObj.getDate();
         TaskDueDate.textContent = `${month} ${day}`;
 
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'delete';
+        deleteBtn.classList.add('addTaskFormBtn')
+        deleteBtn.addEventListener('click', () => {
+            deleteTodo(todo)
+        })
+
+
 
         TaskContentDiv.appendChild(checkedHeaderDiv);
         TaskContentDiv.appendChild(TaskDescription);
         TaskContentDiv.appendChild(TaskDueDate);
+        TaskContentDiv.appendChild(deleteBtn)
 
         PageListDiv.appendChild(TaskContentDiv);
     });
@@ -187,7 +247,8 @@ function showInitialSavedTodos() {
 function init() {
     setUpEventListeners();
     showInitialSavedTodos();
-
+    
+    
 
     
 }
