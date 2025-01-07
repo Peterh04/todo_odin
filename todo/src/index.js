@@ -127,6 +127,11 @@ function setUpEventListeners() {
         document.querySelector('.filterBtn').classList.add('clickedOptionBtn');
         loadFilterPage();
     });
+
+    document.querySelector('.userMenuBtn').addEventListener('click', ()=>{
+        clearContent()
+        showInitialSavedTodos()
+    })
 }
 
 
