@@ -1,8 +1,9 @@
-import { deleteTodo } from "./delete";
+import deleteTodo from "./delete";
 import { todos } from "./todo";
 const savedTodos = JSON.parse(localStorage.getItem('todos')) || []; 
 
-export default function showUpcomingTasks() {
+
+const showUpcomingTasks =  function showUpcomingTasks() {
   const todoShowcase = document.querySelector('.todo-showcase');
   todoShowcase.classList.add('todoShowCase');
   const upcomingTodoShowcaseDiv = document.createElement('div');
@@ -106,3 +107,5 @@ export default function showUpcomingTasks() {
 
   todoShowcase.appendChild(upcomingTodoShowcaseDiv);
 }
+
+export default showUpcomingTasks

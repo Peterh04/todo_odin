@@ -1,11 +1,11 @@
+import deleteTodo from "./delete";
 import listProjects from "./ListProject";
 import myProjects from "./projects";
 
-import { deleteTodo } from "./delete";
 
 const savedTodos = JSON.parse(localStorage.getItem('todos')) || [];
 export default function viewProject(projectName) {
-    console.log("Selected project:", projectName);
+    
 
     const todoShowcase = document.querySelector('.todo-showcase');
     todoShowcase.innerHTML = ''; // Clear previous content

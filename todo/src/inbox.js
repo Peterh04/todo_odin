@@ -1,6 +1,8 @@
 import { todos } from "./todo";
 import "./currentPage.css";
-import { deleteTodo } from "./delete";
+import deleteTodo from "./delete";
+
+
 
 export default function displayInboxTodos() {
   const todoShowcase = document.querySelector('.todo-showcase');

@@ -1,4 +1,4 @@
-export function deleteTodo(todo){
+const deleteTodo = function deleteTodo(todo){
     let savedTodo = JSON.parse(localStorage.getItem('todos'));
   
     const index = savedTodo.findIndex(x => x.taskName == todo.taskName);
@@ -9,3 +9,6 @@ export function deleteTodo(todo){
     location.reload()
   
 }
+
+export default deleteTodo
+

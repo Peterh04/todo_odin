@@ -2,7 +2,7 @@ import createProject from "./addProject";
 import "./projectModal.css";
 
 
-export default function(){
+const showProjectModal = function showProjectModal(){
     const todoShowCase = document.querySelector('.todo-showcase');
     
     const addProjectModal = document.createElement('div');
@@ -90,3 +90,6 @@ export default function(){
 
     todoShowCase.appendChild(addProjectModal);
 }
+
+
+export default showProjectModal

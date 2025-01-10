@@ -1,8 +1,7 @@
 import myProjects from "./projects";
 
 
-
-export default function createProject (){
+const  createProject =  function createProject (){
     let myProjects = JSON.parse(localStorage.getItem('projects')) || []
     const projectNameInput = document.querySelector('.projectNameInput');
 
@@ -11,6 +10,8 @@ export default function createProject (){
     myProjects.push(projectNameInput.value);
 
     localStorage.setItem('projects', JSON.stringify(myProjects));
-    console.log(localStorage)
+    
     
 }
+
+export default createProject

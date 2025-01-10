@@ -1,7 +1,7 @@
 let todos = [];
 
 
-export default function todoCreate() {
+const todoCreate =  function todoCreate() {
     let todos = JSON.parse(localStorage.getItem('todos')) || [];
 
     class todo {
@@ -40,4 +40,5 @@ export default function todoCreate() {
     location.reload()
 }
 
+export default todoCreate;
 export { todos };

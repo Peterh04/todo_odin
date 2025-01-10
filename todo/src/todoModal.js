@@ -6,7 +6,7 @@ import "./todo.style.css";
 
 
 
-export default function todoModal(){
+const todoModal =  function todoModal(){
     const todoShowCase = document.querySelector('.todo-showcase');
     const todoModalDiv = document.createElement('div');
 
@@ -148,7 +148,7 @@ export default function todoModal(){
         hidetodoModal();
     });
 
-        
+       
         dueDateInput.addEventListener('input', () => {
         dueDateInput.classList.remove('input-error');
     });
@@ -183,3 +183,6 @@ export default function todoModal(){
     todoModalDiv.appendChild(todoForm);
     todoShowCase.appendChild(todoModalDiv);
 }
+
+
+export default todoModal

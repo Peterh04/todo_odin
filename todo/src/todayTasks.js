@@ -1,8 +1,8 @@
-import { deleteTodo } from "./delete";
+import deleteTodo from "./delete";
 import { todos } from "./todo";
 
 
-export default function showTodayProjects() {
+const showTodayProjects =  function showTodayProjects() {
   const savedTodos = JSON.parse(localStorage.getItem('todos')) || []; 
 
   const todoShowcase = document.querySelector('.todo-showcase');
@@ -112,3 +112,6 @@ export default function showTodayProjects() {
 
   todoShowcase.appendChild(todayTodoShowcaseDiv);
 }
+
+
+export default showTodayProjects

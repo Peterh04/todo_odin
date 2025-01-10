@@ -1,8 +1,9 @@
 // Imports
-import { deleteTodo } from "./delete";
+import deleteTodo from "./delete";
 import displayInboxTodos from "./inbox";
 import listProjects from "./ListProject";
-import projectModal from "./projectModal";
+import showProjectModal from "./projectModal";
+
 import "./style.css";
 import showTodayProjects from "./todayTasks";
 import { todos } from "./todo";
@@ -11,7 +12,7 @@ import showUpcomingTasks from "./upComingTasks";
 
 
 // Utility Functions
-const clearContent = () => {
+export const clearContent = () => {
     const todoShowcase = document.querySelector('.todo-showcase');
     todoShowcase.innerHTML = '';
 };
@@ -29,7 +30,7 @@ const loadAddTask = () => {
 
 const loadAddProjects = () => {
     clearContent();
-    projectModal();
+    showProjectModal()
 };
 
 const loadListProjects = () => {
@@ -73,8 +74,10 @@ const removeClickedStyle = () => {
     projectsBtnDiv.classList.remove('clickedOptionBtn');
 };
 
+
+
 // Event Listeners Setup
-function setUpEventListeners() {
+const setUpEventListeners = function setUpEventListeners() {
     document.querySelector('.addTasksBtn').addEventListener('click', loadAddTask);
     document.querySelector('.addProjectBtn').addEventListener('click', loadAddProjects);
 
@@ -137,7 +140,7 @@ function setUpEventListeners() {
 
 const savedTodos = JSON.parse(localStorage.getItem('todos')) || [];
 // Display Saved Todos
-function showInitialSavedTodos() {
+export const showInitialSavedTodos =  function showInitialSavedTodos() {
     
     const todoShowcase = document.querySelector('.todo-showcase');
     todoShowcase.classList.add('todoShowCase');
